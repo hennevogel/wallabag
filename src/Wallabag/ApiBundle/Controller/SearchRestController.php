@@ -2,6 +2,7 @@
 
 namespace Wallabag\ApiBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Get;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -24,6 +25,8 @@ class SearchRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/search.{_format}", name="api_get_search")
      */
     public function getSearchAction(Request $request)
     {

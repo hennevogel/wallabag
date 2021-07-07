@@ -2,6 +2,10 @@
 
 namespace Wallabag\ApiBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Delete;
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Patch;
+use FOS\RestBundle\Controller\Annotations\Post;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -36,6 +40,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/entries/exists.{_format}", name="api_get_entries_exists")
      */
     public function getEntriesExistsAction(Request $request)
     {
@@ -104,6 +110,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/entries.{_format}", name="api_get_entries")
      */
     public function getEntriesAction(Request $request)
     {
@@ -174,6 +182,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/entries/{entry}.{_format}", name="api_get_entry")
      */
     public function getEntryAction(Entry $entry)
     {
@@ -193,6 +203,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return Response
+     *
+     * @Get("/api/entries/{entry}/export.{_format}", name="api_get_entry_export")
      */
     public function getEntryExportAction(Entry $entry, Request $request)
     {
@@ -216,6 +228,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/entries/list.{_format}", name="api_delete_entries_list")
      */
     public function deleteEntriesListAction(Request $request)
     {
@@ -265,6 +279,8 @@ class EntryRestController extends WallabagRestController
      * @throws HttpException When limit is reached
      *
      * @return JsonResponse
+     *
+     * @Post("/api/entries/lists.{_format}", name="api_post_entries_list")
      */
     public function postEntriesListAction(Request $request)
     {
@@ -335,6 +351,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Post("/api/entries.{_format}", name="api_post_entries")
      */
     public function postEntriesAction(Request $request)
     {
@@ -441,6 +459,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Patch("/api/entries/{entry}.{_format}", name="api_patch_entries")
      */
     public function patchEntriesAction(Entry $entry, Request $request)
     {
@@ -546,6 +566,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Patch("/api/entries/{entry}/reload.{_format}", name="api_patch_entries_reload")
      */
     public function patchEntriesReloadAction(Entry $entry)
     {
@@ -591,6 +613,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/entries/{entry}.{_format}", name="api_delete_entries")
      */
     public function deleteEntriesAction(Entry $entry, Request $request)
     {
@@ -630,6 +654,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/entries/{entry}/tags.{_format}", name="api_get_entries_tags")
      */
     public function getEntriesTagsAction(Entry $entry)
     {
@@ -652,6 +678,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Post("/api/entries/{entry}/tags.{_format}", name="api_post_entries_tags")
      */
     public function postEntriesTagsAction(Request $request, Entry $entry)
     {
@@ -681,6 +709,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/entries/{entry}/tags/{tag}.{_format}", name="api_delete_entries_tags")
      */
     public function deleteEntriesTagsAction(Entry $entry, Tag $tag)
     {
@@ -705,6 +735,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/entries/tags/list.{_format}", name="api_delete_entries_tags_list")
      */
     public function deleteEntriesTagsListAction(Request $request)
     {
@@ -763,6 +795,8 @@ class EntryRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Post("/api/entries/tags/lists.{_format}", name="api_post_entries_tags_list")
      */
     public function postEntriesTagsListAction(Request $request)
     {
