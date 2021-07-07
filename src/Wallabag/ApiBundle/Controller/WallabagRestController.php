@@ -3,6 +3,7 @@
 namespace Wallabag\ApiBundle\Controller;
 
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations\Get;
 use JMS\Serializer\SerializationContext;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,6 +19,8 @@ class WallabagRestController extends AbstractFOSRestController
      * @deprecated Should use info endpoint instead
      *
      * @return JsonResponse
+     *
+     * @Get("/api/version.{_format}", name="api_get_version")
      */
     public function getVersionAction()
     {
@@ -33,6 +36,8 @@ class WallabagRestController extends AbstractFOSRestController
      * @ApiDoc()
      *
      * @return JsonResponse
+     *
+     * @Get("/api/info.{_format}", name="api_get_info")
      */
     public function getInfoAction()
     {

@@ -2,6 +2,10 @@
 
 namespace Wallabag\ApiBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Delete;
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Post;
+use FOS\RestBundle\Controller\Annotations\Put;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -21,6 +25,8 @@ class AnnotationRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Get("/api/annotations/{entry}.{_format}", name="api_get_annotations")
      */
     public function getAnnotationsAction(Entry $entry)
     {
@@ -43,6 +49,8 @@ class AnnotationRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Post("/api/annotations/{entry}.{_format}", name="api_post_annotation")
      */
     public function postAnnotationAction(Request $request, Entry $entry)
     {
@@ -66,6 +74,8 @@ class AnnotationRestController extends WallabagRestController
      * @ParamConverter("annotation", class="WallabagAnnotationBundle:Annotation")
      *
      * @return JsonResponse
+     *
+     * @Put("/api/annotations/{annotation}.{_format}", name="api_put_annotation")
      */
     public function putAnnotationAction(Annotation $annotation, Request $request)
     {
@@ -89,6 +99,8 @@ class AnnotationRestController extends WallabagRestController
      * @ParamConverter("annotation", class="WallabagAnnotationBundle:Annotation")
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/annotations/{annotation}.{_format}", name="api_delete_annotation")
      */
     public function deleteAnnotationAction(Annotation $annotation)
     {

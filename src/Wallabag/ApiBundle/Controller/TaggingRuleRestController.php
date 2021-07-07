@@ -2,6 +2,7 @@
 
 namespace Wallabag\ApiBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Get;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -15,6 +16,8 @@ class TaggingRuleRestController extends WallabagRestController
      * @ApiDoc()
      *
      * @return Response
+     *
+     * @Get("/api/taggingrule/export.{_format}", name="api_get_taggingrule_export")
      */
     public function getTaggingruleExportAction()
     {

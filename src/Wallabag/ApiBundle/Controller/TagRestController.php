@@ -2,10 +2,11 @@
 
 namespace Wallabag\ApiBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Delete;
+use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Wallabag\CoreBundle\Entity\Entry;
 use Wallabag\CoreBundle\Entity\Tag;
 
 class TagRestController extends WallabagRestController
@@ -16,6 +17,8 @@ class TagRestController extends WallabagRestController
      * @ApiDoc()
      *
      * @return JsonResponse
+     *
+     * @Get("/api/tags.{_format}", name="api_get_tags")
      */
     public function getTagsAction()
     {
@@ -40,6 +43,8 @@ class TagRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/tag/label.{_format}", name="api_delete_tag_label")
      */
     public function deleteTagLabelAction(Request $request)
     {
@@ -75,6 +80,8 @@ class TagRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/tags/label.{_format}", name="api_delete_tags_label")
      */
     public function deleteTagsLabelAction(Request $request)
     {
@@ -109,6 +116,8 @@ class TagRestController extends WallabagRestController
      * )
      *
      * @return JsonResponse
+     *
+     * @Delete("/api/tags/{tag}.{_format}", name="api_delete_tag")
      */
     public function deleteTagAction(Tag $tag)
     {
